@@ -1,8 +1,19 @@
 # DAF-YOLO
 
-Official implementation accompanying the manuscript **“Density-Aware Cross-Scale Feature Allocation for Lightweight UAV Small-Object Detection”**, submitted to *The Visual Computer*.
+Official implementation of **"Density-Guided Cross-Scale Feature Allocation for UAV Small-Object Detection"**, submitted to *Multimedia Systems*.
 
-> **Publication status:** Under submission. Bibliographic information will be updated when available. If you use this repository, please cite the corresponding paper once its citation details are available.
+> **Note:** This repository contains the implementation associated with our manuscript submitted to *Multimedia Systems*. If you find this work useful, please cite our paper (see [Citation](#citation)).
+
+DAF-YOLO is a parameter-compact UAV small-object detection framework developed upon YOLOv11n. It introduces a density-guided cross-scale feature allocation mechanism through three complementary components:
+
+* **DASSAFM** — Density-Aware Soft-Scale Adaptive Fusion Module: learns an implicit density-response map without requiring additional density annotations and uses it to modulate spatially adaptive cross-scale fusion weights.
+* **SDLKA** — Separable Dilated Large-Kernel Attention: enhances directional contextual representation through separable dilated depthwise convolutions and stage-specific channel–spatial co-selection.
+* **LSDDetect** — Lightweight Cross-Scale Detection Head: aggregates and redistributes semantic context across detection scales while maintaining a compact parameter budget.
+
+On the VisDrone2019 validation set, **DAF-YOLO(n) achieves 39.0% mAP@0.5 and 23.1% mAP@0.5:0.95 with 2.4M parameters and 13.3 GFLOPs**.
+
+Although DAF-YOLO reduces model parameters compared with the YOLOv11n baseline, high-resolution cross-scale fusion introduces additional computational overhead. Therefore, the proposed method is characterized as parameter-compact rather than strictly computation-lightweight.
+
 
 ## Overview
 
