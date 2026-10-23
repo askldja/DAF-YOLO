@@ -15,16 +15,6 @@ On the VisDrone2019 validation set, **DAF-YOLO(n) achieves 39.0% mAP@0.5 and 23.
 Although DAF-YOLO reduces model parameters compared with the YOLOv11n baseline, high-resolution cross-scale fusion introduces additional computational overhead. Therefore, the proposed method is characterized as parameter-compact rather than strictly computation-lightweight.
 
 
-## Overview
-
-DAF-YOLO is a **parameter-compact** object detector for small objects in UAV imagery, developed from the YOLO11n (YOLOv11n) baseline. Its core idea is to adapt cross-scale feature allocation to local object-density patterns through a learned density response, **without requiring additional density annotations** beyond the object-detection labels.
-
-The framework contains three components:
-
-- **DASSAFM (Density-Aware Soft-Scale Adaptive Fusion Module):** Learns an implicit density-response map from the detection objective and uses it to modulate spatially varying scale-selection logits for cross-scale feature fusion.
-- **SDLKA (Separable Dilated Large-Kernel Attention):** Combines local and directional dilated depthwise operations to capture contextual information with a limited parameter budget. A stage-specific C3k2-SDLKA design adjusts the auxiliary operations across backbone levels.
-- **LSDDetect (Lightweight Cross-Scale Detection Head):** Aggregates shared semantic context across three detection scales before lightweight prediction, with the aim of improving cross-scale semantic consistency.
-
 ## Results
 
 On the **VisDrone2019-DET validation split**, DAF-YOLO(n) achieves **39.0% mAP@0.5** and **23.1% mAP@0.5:0.95** with approximately **2.4 million parameters**.
